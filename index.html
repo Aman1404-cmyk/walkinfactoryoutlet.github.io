@@ -1,0 +1,987 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Footwear - Free Bootstrap 4 Template by Colorlib</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Ion Icon Fonts-->
+	<link rel="stylesheet" href="css/ionicons.min.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<style>
+		.owl-carousel2 {
+			margin-top: -40px;
+			width: 100%; /* Make the carousel span the full width of its container */
+		}
+
+		@media (max-width: 768px) {
+			.owl-carousel2 {
+				margin-top: 0; /* Adjust margin for smaller screens */
+			}
+		}
+
+		@media (max-width: 576px) {
+			.owl-carousel2 {
+				margin-top: 10px; /* Further adjustment for very small screens */
+			}
+		}
+
+		.sale {
+			height: 70px;
+		}
+
+		body {
+			padding-top: 180px; /* Adjust this based on the navbar height */
+		}
+
+		.story {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.9);
+			z-index: 2000;
+		}
+
+		.story__slider {
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+		}
+
+		.story__slide {
+			max-width: 90%;
+			max-height: 90%;
+		}
+
+			.story__slide img, .story__slide video {
+				max-width: 100%;
+				max-height: 100%;
+				border-radius: 10px;
+			}
+
+		.story__next, .story__prev {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: 2rem;
+			color: #fff;
+			cursor: pointer;
+			z-index: 1001;
+		}
+
+		.story__next {
+			right: 20px;
+		}
+
+		.story__prev {
+			left: 20px;
+		}
+
+		.story__close {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			font-size: 2rem;
+			color: #fff;
+			cursor: pointer;
+			z-index: 1002;
+		}
+
+		.story__pagination {
+			position: absolute;
+			top: 10px;
+			left: 0;
+			right: 0;
+			display: flex;
+			justify-content: center;
+			z-index: 1002;
+		}
+
+			.story__pagination div {
+				height: 3px;
+				background-color: rgba(255, 255, 255, 0.5);
+				flex: 1;
+				margin: 0 2px;
+				position: relative;
+			}
+
+				.story__pagination div.active::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 0;
+					height: 100%;
+					background-color: #fff;
+					animation: progress 5s linear forwards;
+				}
+
+		@keyframes progress {
+			0% {
+				width: 0%;
+			}
+
+			100% {
+				width: 100%;
+			}
+		}
+
+		button#toggleStoryButton {
+			border: none;
+			transition: transform 0.3s ease-in-out;
+			border-radius: 50%;
+			width: 60px;
+			height: 60px;
+			padding: 0px;
+			margin-top: -10px;
+		}
+
+
+			button#toggleStoryButton:hover {
+				transform: scale(1.1);
+			}
+
+			button#toggleStoryButton img {
+				border-radius: 50%;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+
+		.float {
+			position: fixed;
+			width: 60px;
+			height: 60px;
+			bottom: 40px;
+			right: 40px;
+			background-color: #25d366;
+			color: #FFF;
+			border-radius: 50px;
+			text-align: center;
+			font-size: 30px;
+			box-shadow: 2px 2px 3px #999;
+			z-index: 100;
+		}
+
+		.my-float {
+			margin-top: 16px;
+		}
+
+		.logo {
+			display: flex;
+			align-items: center;
+		}
+
+			.logo img {
+				width: 80px; /* Set the width of your logo image */
+				height: auto; /* Maintain aspect ratio */
+				margin-right: 10px; /* Adjust spacing between logo and brand name */
+				border-radius: 200%;
+			}
+
+			.logo a {
+				text-decoration: none;
+				color: black;
+				font-size: 24px;
+				font-weight: bold;
+			}
+
+			.logo span {
+				color: #ff6600; /* You can set the color of the 'IN' part */
+			}
+
+
+		/*-----InvestorRelation------*/
+		#message-overlay {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			z-index: 2000;
+		}
+
+		#message {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: #E9C46A;
+			color: black;
+			font: bold;
+			text-align: center;
+			padding: 10px;
+			z-index: 1001;
+		}
+
+		.message a {
+			color: red;
+		}
+
+		#cancel-button {
+			display: block;
+			margin-top: 10px;
+			padding: 5px 10px;
+			background-color: #ccc;
+			color: black;
+			border: solid;
+			cursor: pointer;
+		}
+
+
+		/*-----InvestorRelation------*/
+
+		.ie-panel {
+			display: none;
+			background: #E9C46A;
+			padding: 10px 0;
+			box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);
+			clear: both;
+			text-align: center;
+			position: relative;
+			z-index: 1;
+		}
+
+		html.ie-10 .ie-panel,
+		html.lt-ie-10 .ie-panel {
+			display: block;
+		}
+
+		.colio-cont-details ul {
+			margin-top: 40px;
+			margin-bottom: 40px;
+			padding: 0;
+			list-style-type: none;
+		}
+
+		.colio-cont-details li {
+			position: relative;
+			padding-left: 30px;
+			margin-bottom: 10px;
+			line-height: 26px;
+			display: flex;
+			align-items: center;
+		}
+
+			.colio-cont-details li::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 26px;
+				height: 26px;
+				background: url('."./../Content/images/pdf (1).png') no-repeat;
+				background-size: contain;
+			}
+
+		.colio-cont-details a {
+			color: #E9C46A;
+			text-decoration: none;
+			margin-left: 0px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.prod-img img {
+			transition: transform 0.3s, box-shadow 0.3s;
+		}
+
+		.prod-img:hover img {
+			transform: rotateY(10deg) rotateX(10deg);
+			box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+		}
+	</style>
+</head>
+<body>
+	<a href="https://wa.me/917979717592" class="float" target="_blank">
+		<i class="fa fa-whatsapp my-float"></i>
+	</a>
+	<div class="story">
+		<button class="story__close">&times;</button>
+		<div class="story__slider swiper">
+			<div class="story__wrapper swiper-wrapper">
+				<!-- Slide 1 -->
+				<div class="story__slide swiper-slide">
+					<img src="https://picsum.photos/450/800" alt="Image 1">
+				</div>
+				<!-- Slide 2 -->
+				<div class="story__slide swiper-slide">
+					<video controls autoplay muted>
+						<source src="https://exit109.com/~dnn/clips/RW20seconds_1.mp4#t=.1" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</div>
+				<!-- Slide 3 -->
+				<div class="story__slide swiper-slide">
+					<img src="https://picsum.photos/450/810" alt="Image 2">
+				</div>
+			</div>
+
+			<!-- Navigation Controls -->
+			<div class="story__next swiper-button-next">&#10095;</div>
+			<div class="story__prev swiper-button-prev">&#10094;</div>
+
+			<!-- Pagination (Progress Bars) -->
+			<div class="story__pagination">
+				<div class="active"></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</div>
+	<div class="colorlib-loader"></div>
+	<div id="page">
+		<nav class="colorlib-nav fixed-top" role="navigation">
+			<div class="top-menu" style="background-color:#E9C46A;padding:6px;">
+				<div class="container-fluid-fluid">
+					<div class="row">
+						<div class="col-sm-6 col-md-6">
+							<div class="logo">
+								<img src="logoimg/walkilogo.jpeg" alt="Logo" />
+								<div id="colorlib-logo"><a href="img/home.jpg"><b style="color:black;font:bold;font-family:Georgia, 'Times New Roman', Times, serif;">WALK </b><span><b style="color:red;">IN</b></span></a></div>
+							</div>
+						</div>
+						<div class="col-sm-5 col-md-6">
+							<form action="#" class="search-wrap">
+								<div class="form-group">
+									<input type="search" class="form-control search" placeholder="Search">
+									<button class="btn btn-primary submit-search text-center" type="submit"><i class="icon-search"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 text-left menu-1">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li class="has-dropdown">
+									<a href="men.html">Men</a>
+									<ul class="dropdown">
+										<li><a href="product-detail.html">Product Detail</a></li>
+										<li><a href="cart.html">Shopping Cart</a></li>
+										<li><a href="okkkkkage1.html">Checkout</a></li>
+										<li><a href="order-complete.html">Order Complete</a></li>
+										<li><a href="add-to-wishlist.html">Wishlist</a></li>
+									</ul>
+								</li>
+								<li><a href="women.html">Women</a></li>
+								<li><a href="about.html">About</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li class="cart"><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sale">
+				<button id="toggleStoryButton">
+					<img src="images/puma.jpeg" alt="Circular Image Button">
+				</button>
+				<div class="container-fluid-fluid">
+					<div class="row">
+						<div class="col-sm-8 offset-sm-2  text-center">
+							<div class="row">
+								<div class="owl-carousel2">
+									<div class="item">
+										<div class="col">
+											<h3><a href="#">25% off (Almost) Everything! Use Code: Summer Sale</a></h3>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col">
+											<h3><a href="#">Our biggest sale yet 50% off all summer shoes</a></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<aside id="colorlib-hero">
+			<div class="flexslider">
+				<ul class="slides">
+					<li style="background-image: url(images/img_bg_1.jpg);">
+						<div class="overlay"></div>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-6 offset-sm-3 text-center slider-text">
+									<div class="slider-text-inner">
+										<div class="desc">
+											<h1 class="head-1">Men's</h1>
+											<h2 class="head-2">Shoes</h2>
+											<h2 class="head-3">Collection</h2>
+											<p class="category"><span>New trending shoes</span></p>
+											<p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li style="background-image: url(images/img_bg_2.jpg);">
+						<div class="overlay"></div>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-6 offset-sm-3 text-center slider-text">
+									<div class="slider-text-inner">
+										<div class="desc">
+											<h1 class="head-1">Huge</h1>
+											<h2 class="head-2">Sale</h2>
+											<h2 class="head-3"><strong class="font-weight-bold">50%</strong> Off</h2>
+											<p class="category"><span>Big sale sandals</span></p>
+											<p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li style="background-image: url(images/img_bg_3.jpg);">
+						<div class="overlay"></div>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-6 offset-sm-3 text-center slider-text">
+									<div class="slider-text-inner">
+										<div class="desc">
+											<h1 class="head-1">New</h1>
+											<h2 class="head-2">Arrival</h2>
+											<h2 class="head-3">up to <strong class="font-weight-bold">30%</strong> off</h2>
+											<p class="category"><span>New stylish shoes for men</span></p>
+											<p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</aside>
+		<div class="colorlib-intro">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<h2 class="intro">It started with a simple idea: Create quality, well-designed products that I wanted myself.</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="colorlib-product">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-6 text-center">
+						<div class="featured">
+							<a href="men.html" class="featured-img" style="background-image: url(images/men.jpg);"></a>
+							<div class="desc">
+								<h2><a href="men.html">Shop Men's Collection</a></h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 text-center">
+						<div class="featured">
+							<a href="women.html" class="featured-img" style="background-image: url(images/women.jpg);"></a>
+							<div class="desc">
+								<h2><a href="women.html">Shop Women's Collection</a></h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="colorlib-product">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
+						<h2>Best Sellers</h2>
+					</div>
+				</div>
+				<div class="row row-pb-md">
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Minam Meaghan</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-3.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Men's Taja Commissioner</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-4.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Russ Men's Sneakers</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="w-100"></div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-5.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-6.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-7.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-8.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="w-100"></div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-9.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-10.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-11.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-12.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="w-100"></div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-13.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-14.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-15.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-16.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<p><a href="#" class="btn btn-primary btn-lg">Shop All Products</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="colorlib-partner">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
+						<h2>Trusted Partners</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col partner-col text-center">
+						<img src="images/brand-1.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+					</div>
+					<div class="col partner-col text-center">
+						<img src="images/brand-2.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+					</div>
+					<div class="col partner-col text-center">
+						<img src="images/brand-3.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+					</div>
+					<div class="col partner-col text-center">
+						<img src="images/brand-4.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+					</div>
+					<div class="col partner-col text-center">
+						<img src="images/brand-5.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer id="colorlib-footer" role="contentinfo">
+			<div class="container">
+				<div class="row row-pb-md">
+					<div class="col footer-col colorlib-widget">
+						<h4>About Footwear</h4>
+						<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
+						<p>
+							<ul class="colorlib-social-icons">
+								<li><a href="#"><i class="icon-twitter"></i></a></li>
+								<li><a href="#"><i class="icon-facebook"></i></a></li>
+								<li><a href="#"><i class="icon-linkedin"></i></a></li>
+								<li><a href="#"><i class="icon-dribbble"></i></a></li>
+							</ul>
+						</p>
+					</div>
+					<div class="col footer-col colorlib-widget">
+						<h4>Customer Care</h4>
+						<p>
+							<ul class="colorlib-footer-links">
+								<li><a href="#">Contact</a></li>
+								<li><a href="#">Returns/Exchange</a></li>
+								<li><a href="#">Gift Voucher</a></li>
+								<li><a href="#">Wishlist</a></li>
+								<li><a href="#">Special</a></li>
+								<li><a href="#">Customer Services</a></li>
+								<li><a href="#">Site maps</a></li>
+							</ul>
+						</p>
+					</div>
+					<div class="col footer-col colorlib-widget">
+						<h4>Information</h4>
+						<p>
+							<ul class="colorlib-footer-links">
+								<li><a href="#">About us</a></li>
+								<li><a href="#">Delivery Information</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Support</a></li>
+								<li><a href="#">Order Tracking</a></li>
+							</ul>
+						</p>
+					</div>
+
+					<div class="col footer-col">
+						<h4>News</h4>
+						<ul class="colorlib-footer-links">
+							<li><a href="blog.html">Blog</a></li>
+							<li><a href="#">Press</a></li>
+							<li><a href="#">Exhibitions</a></li>
+						</ul>
+					</div>
+
+					<div class="col footer-col">
+						<h4>Contact Information</h4>
+						<ul class="colorlib-footer-links">
+							<li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
+							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
+							<li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
+							<li><a href="#">yoursite.com</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="copy">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<p>
+							<span>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy;
+								<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</span>
+							<span class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a> , <a href="http://pexels.com/" target="_blank">Pexels.com</a></span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
+	</div>
+	<div id="message-overlay">
+		<div id="message">
+			<p>Your message goes here</p>
+			<button id="cancelbutton">X</button>
+		</div>
+	</div>
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- popper -->
+	<script src="js/popper.min.js"></script>
+	<!-- bootstrap 4.1 -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- jQuery easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Owl carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Date Picker -->
+	<script src="js/bootstrap-datepicker.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="js/jquery.stellar.min.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+	<script>
+		const toggleStoryButton = document.getElementById('toggleStoryButton');
+		const storyDiv = document.querySelector('.story');
+		const closeStoryButton = document.querySelector('.story__close');
+		const nextButton = document.querySelector('.story__next');
+		const prevButton = document.querySelector('.story__prev');
+		let currentIndex = 0;
+
+		toggleStoryButton.addEventListener('click', function () {
+			storyDiv.style.display = 'block';
+			startStory();
+		});
+
+		closeStoryButton.addEventListener('click', function () {
+			storyDiv.style.display = 'none';
+			resetStory();
+		});
+
+		nextButton.addEventListener('click', nextStory);
+		prevButton.addEventListener('click', prevStory);
+
+		function startStory() {
+			updatePagination(currentIndex);
+		}
+
+		function nextStory() {
+			currentIndex = (currentIndex + 1) % document.querySelectorAll('.story__slide').length;
+			showSlide(currentIndex);
+		}
+
+		function prevStory() {
+			currentIndex = (currentIndex - 1 + document.querySelectorAll('.story__slide').length) % document.querySelectorAll('.story__slide').length;
+			showSlide(currentIndex);
+		}
+
+		function showSlide(index) {
+			const slides = document.querySelectorAll('.story__slide');
+			slides.forEach((slide, i) => {
+				slide.style.display = i === index ? 'block' : 'none';
+			});
+			updatePagination(index);
+		}
+
+		function updatePagination(index) {
+			const progressBars = document.querySelectorAll('.story__pagination div');
+			progressBars.forEach((bar, i) => {
+				bar.classList.toggle('active', i === index);
+			});
+		}
+
+		function resetStory() {
+			currentIndex = 0;
+			showSlide(currentIndex);
+		}
+
+
+		setInterval(() => {
+			if (storyDiv.style.display === 'block') {
+				nextStory();
+			}
+		}, 5000);
+		// Function to display a message in the overlay
+		function showMessage(message) {
+			var overlay = document.getElementById('message-overlay');
+			var messageElement = document.getElementById('message');
+			var cancelButton = document.getElementById('cancelbutton');
+			var colors = ["#3FA2F6", "black", "red", "#FFA38F", "orange"];
+			var colorIndex = 0;
+
+			// Display the message in the message element
+			messageElement.innerHTML = message;
+			overlay.style.display = 'block'; // Show overlay
+
+			// Hide the overlay when cancel button is clicked
+			cancelButton.addEventListener('click', function () {
+				overlay.style.display = 'none';
+			});
+
+			// Hide the overlay when the overlay itself is clicked
+			overlay.addEventListener('click', function () {
+				overlay.style.display = 'none';
+			});
+
+			// Prevent the message element from closing the overlay when clicked
+			messageElement.addEventListener('click', function (event) {
+				event.stopPropagation(); // Stop the event from bubbling up to the overlay
+			});
+
+			// Change the color of the h1 element every second
+			var h1Element = messageElement.querySelector('h1');
+			var colorInterval = setInterval(function () {
+				h1Element.style.color = colors[colorIndex];
+				colorIndex = (colorIndex + 1) % colors.length;
+			}, 1000); // Change color every 1 second (1000 milliseconds)
+
+			// Clear the interval when overlay is closed
+			overlay.addEventListener('click', function () {
+				clearInterval(colorInterval); // Stop color change when overlay is closed
+			});
+
+			cancelButton.addEventListener('click', function () {
+				clearInterval(colorInterval); // Stop color change when cancel button is clicked
+			});
+		}
+
+		// Call the showMessage function with a customized message
+		showMessage(
+			'<h1>WALK-IN ♥️</h1>' +
+			'<b>We exclusively provide quality leather shoes, and jackets.</b>' +
+			'<p>It is our guarantee that the rate at which we will give you shoes will not be found under any circumstances.</p>' +
+			'<p>You will get one year warranty/Guarantee on each of our shoes.</p>' +
+			'<p>We sell all types of Leather Goods: Leather Boots, Formals, Loafers, Sports shoes, canvas, Sandals, Slippers, Leather jackets, Gloves, Belts, Wallets, Ladies Boots and Leather Socks.</p>' +
+			'<p>Delivery all over India available 🚚</p>' +
+			'<p>Connect with us on WhatsApp <i class="fab fa-whatsapp-square" style="font-size: 24px; color: green;"></i>: <a href="https://wa.me/c/917979717592" target="_blank">https://wa.me/c/917979717592</a></p>' +
+			'<p><a href="#">Our biggest sale yet: 80% off all summer shoes</a></p>'
+		);
+
+	</script>
+</body>
+</html>
+
