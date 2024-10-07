@@ -41,7 +41,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 	<style>
-        /* Style for the pop-up overlay */
         #message-overlay {
             display: none;
             position: fixed;
@@ -51,16 +50,15 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7); /* Dark background with transparency */
             z-index: 2000;
-            overflow-y: auto; /* Enable scrolling for smaller screens */
+            overflow-y: auto;
         }
 
-        /* Style for the pop-up container */
         #message {
             position: relative;
-            margin: 5% auto; /* Center the pop-up */
+            margin: 5% auto;
             padding: 20px;
-            max-width: 600px; /* Fixed maximum width for tablet and mobile */
-            width: 90%; /* Pop-up should take 90% of the viewport width */
+            max-width: 600px;
+            width: 90%;
             background-color: #E9C46A;
             color: black;
             text-align: center;
@@ -68,12 +66,11 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Responsive font sizes for mobile */
         @media (max-width: 576px) {
             #message {
                 margin: 5% auto;
                 padding: 15px;
-                max-width: 95%; /* For small mobile, slightly larger pop-up width */
+                max-width: 95%;
             }
 
                 #message h1 {
@@ -85,29 +82,7 @@
                 }
         }
 
-        /* For tablets and medium devices */
-        @media (min-width: 577px) and (max-width: 1024px) {
-            #message {
-                margin: 5% auto;
-                padding: 20px;
-                max-width: 90%; /* For tablet, allow a bit more width */
-            }
 
-                #message h1 {
-                    font-size: 1.8rem; /* Slightly larger heading for tablets */
-                }
-
-                #message p, #message b {
-                    font-size: 1.1rem; /* Larger body text for tablets */
-                }
-        }
-
-        /* Ensure the content doesn't overflow for any devices */
-        @media (max-width: 400px) {
-            #message {
-                max-width: 95%; /* Slightly smaller for very small mobile screens */
-            }
-        }
         .owl-carousel2 {
             margin-top: -40px;
             width: 100%; /* Make the carousel span the full width of its container */
@@ -117,11 +92,47 @@
             .owl-carousel2 {
                 margin-top: 0; /* Adjust margin for smaller screens */
             }
+
+            .sale {
+                padding: 15px 0; /* Reduce padding for mobile */
+            }
+
+            button#toggleStoryButton {
+                width: 50px; /* Smaller button on mobile */
+                height: 50px;
+            }
+
+            h3 a {
+                font-size: 1.2rem; /* Smaller text for mobile */
+            }
+
+            .owl-carousel2 .item {
+                padding: 10px; /* Add padding to ensure proper spacing */
+            }
+
+            /* Make sure images resize properly */
+            button#toggleStoryButton img {
+                width: 100%;
+                height: auto; /* Maintain aspect ratio */
+            }
         }
 
         @media (max-width: 576px) {
             .owl-carousel2 {
                 margin-top: 10px; /* Further adjustment for very small screens */
+            }
+
+            .sale {
+                padding: 10px 0; /* Even smaller padding */
+            }
+
+            h3 a {
+                font-size: 1rem; /* Adjust font size further on very small screens */
+            }
+
+            button#toggleStoryButton {
+                width: 40px; /* Even smaller button */
+                height: 40px;
             }
         }
 
@@ -487,9 +498,9 @@
 				<button id="toggleStoryButton">
 					<img src="images/puma.jpeg" alt="Circular Image Button">
 				</button>
-				<div class="container-fluid-fluid">
+				<div class="container-fluid">
 					<div class="row">
-						<div class="col-sm-8 offset-sm-2  text-center">
+						<div class="col-sm-8 offset-sm-2 text-center">
 							<div class="row">
 								<div class="owl-carousel2">
 									<div class="item">
@@ -1072,14 +1083,14 @@
             messageElement.innerHTML = message;
             overlay.style.display = 'block'; // Show overlay
 
-            // Hide the overlay when the overlay itself is clicked
+            // Close pop-up when overlay or message is clicked
             overlay.addEventListener('click', function () {
                 overlay.style.display = 'none';
             });
 
-            // Prevent the message element from closing the overlay when clicked
-            messageElement.addEventListener('click', function (event) {
-                event.stopPropagation(); // Stop the event from bubbling up to the overlay
+            // Allow the pop-up itself to close when clicked
+            messageElement.addEventListener('click', function () {
+                overlay.style.display = 'none';
             });
 
             // Change the color of the h1 element every second
@@ -1089,9 +1100,21 @@
                 colorIndex = (colorIndex + 1) % colors.length;
             }, 1000); // Change color every 1 second (1000 milliseconds)
 
-            // Clear the interval when overlay is closed
+            // Set a timer to automatically close the pop-up after 5 seconds (5000 milliseconds)
+            var autoCloseTimeout = setTimeout(function () {
+                overlay.style.display = 'none'; // Auto-close the overlay
+                clearInterval(colorInterval);   // Stop the color-changing interval
+            }, 5000); // Auto-close after 5 seconds
+
+            // Clear the interval and timeout when the pop-up or overlay is clicked
             overlay.addEventListener('click', function () {
-                clearInterval(colorInterval); // Stop color change when overlay is closed
+                clearTimeout(autoCloseTimeout); // Stop auto-close if clicked
+                clearInterval(colorInterval);   // Stop the color change
+            });
+
+            messageElement.addEventListener('click', function () {
+                clearTimeout(autoCloseTimeout); // Stop auto-close if clicked
+                clearInterval(colorInterval);   // Stop the color change
             });
         }
 
