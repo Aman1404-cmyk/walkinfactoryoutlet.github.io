@@ -41,6 +41,73 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 	<style>
+        /* Style for the pop-up overlay */
+        #message-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark background with transparency */
+            z-index: 2000;
+            overflow-y: auto; /* Enable scrolling for smaller screens */
+        }
+
+        /* Style for the pop-up container */
+        #message {
+            position: relative;
+            margin: 5% auto; /* Center the pop-up */
+            padding: 20px;
+            max-width: 600px; /* Fixed maximum width for tablet and mobile */
+            width: 90%; /* Pop-up should take 90% of the viewport width */
+            background-color: #E9C46A;
+            color: black;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive font sizes for mobile */
+        @media (max-width: 576px) {
+            #message {
+                margin: 5% auto;
+                padding: 15px;
+                max-width: 95%; /* For small mobile, slightly larger pop-up width */
+            }
+
+                #message h1 {
+                    font-size: 1.4rem;
+                }
+
+                #message p, #message b {
+                    font-size: 0.9rem;
+                }
+        }
+
+        /* For tablets and medium devices */
+        @media (min-width: 577px) and (max-width: 1024px) {
+            #message {
+                margin: 5% auto;
+                padding: 20px;
+                max-width: 90%; /* For tablet, allow a bit more width */
+            }
+
+                #message h1 {
+                    font-size: 1.8rem; /* Slightly larger heading for tablets */
+                }
+
+                #message p, #message b {
+                    font-size: 1.1rem; /* Larger body text for tablets */
+                }
+        }
+
+        /* Ensure the content doesn't overflow for any devices */
+        @media (max-width: 400px) {
+            #message {
+                max-width: 95%; /* Slightly smaller for very small mobile screens */
+            }
+        }
         .owl-carousel2 {
             margin-top: -40px;
             width: 100%; /* Make the carousel span the full width of its container */
@@ -998,18 +1065,12 @@
         function showMessage(message) {
             var overlay = document.getElementById('message-overlay');
             var messageElement = document.getElementById('message');
-            var cancelButton = document.getElementById('cancelbutton');
             var colors = ["#3FA2F6", "black", "red", "#FFA38F", "orange"];
             var colorIndex = 0;
 
             // Display the message in the message element
             messageElement.innerHTML = message;
             overlay.style.display = 'block'; // Show overlay
-
-            // Hide the overlay when cancel button is clicked
-            cancelButton.addEventListener('click', function () {
-                overlay.style.display = 'none';
-            });
 
             // Hide the overlay when the overlay itself is clicked
             overlay.addEventListener('click', function () {
@@ -1032,10 +1093,6 @@
             overlay.addEventListener('click', function () {
                 clearInterval(colorInterval); // Stop color change when overlay is closed
             });
-
-            cancelButton.addEventListener('click', function () {
-                clearInterval(colorInterval); // Stop color change when cancel button is clicked
-            });
         }
 
         // Call the showMessage function with a customized message
@@ -1049,7 +1106,6 @@
             '<p>Connect with us on WhatsApp <i class="fab fa-whatsapp-square" style="font-size: 24px; color: green;"></i>: <a href="https://wa.me/c/917979717592" target="_blank">https://wa.me/c/917979717592</a></p>' +
             '<p><a href="#">Our biggest sale yet: 80% off all summer shoes</a></p>'
         );
-
 	</script>
 
 
